@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle `
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
+a, abbr, acronym, aeddress, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
@@ -26,7 +26,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-  line-height: 1;
+	line-height: 1;
 }
 ol, ul {
 	list-style: none;
