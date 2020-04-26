@@ -21,7 +21,7 @@ export default (state = defaultState, action) => {
         "articleList": state.get('articleList').concat(action.list),
         "articlePage":action.nextPage
       });
-		case constants.TOGGLE_TOP_SHOW: return state.get('showScroll',action.show);
+		case constants.TOGGLE_TOP_SHOW: return state.set('showScroll',action.show);
 		default: return state; 
 	}
 };

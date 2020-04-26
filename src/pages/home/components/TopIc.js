@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, {  PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { TopWrapper, TopicItem } from '../style';
-class TopIc extends Component {
+class TopIc extends  PureComponent {
 	render() {
 		const { list } = this.props;
 		return (

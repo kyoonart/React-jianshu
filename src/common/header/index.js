@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import {
 	HeaderWrapper,
 	Logo,
@@ -18,6 +18,7 @@ import { IconfontStyle } from '../../static/iconfont/iconfont'; //图标库
 import { CSSTransition } from 'react-transition-group'; // 动画库
 import { connect } from 'react-redux'; //连接 store
 import { CreateAction } from './store/index.js';
+import { CreateAction as LoginCreateAction } from '../../pages/login/store';
 // 无状态组件的性能更高
 class Header extends Component {
 	getItemLists() {
@@ -61,11 +62,23 @@ class Header extends Component {
 		return (
 			<HeaderWrapper>
 				<IconfontStyle />
-			<Link to='/'><Logo/></Link>
+				<Link to="/">
+					<Logo />
+				</Link>
 				<Nav>
 					<NavItem className="left active">首页</NavItem>
 					<NavItem className="left">下载App</NavItem>
-					<NavItem className="right">登录</NavItem>
+					{this.props.login ? (
+						<Link to="/">
+							<NavItem onClick={this.props.logout} className="right">
+								退出
+							</NavItem>
+						</Link>
+					) : (
+						<Link to="/login">
+							<NavItem className="right">登录</NavItem>
+						</Link>
+					)}
 					<NavItem className="right">
 						<i className="iconfont">&#xe636;</i>
 					</NavItem>
@@ -76,7 +89,9 @@ class Header extends Component {
 							classNames="slide"
 						>
 							<NavSearch
-								onFocus={()=>{this.props.handleonFocus(this.props.list)}}
+								onFocus={() => {
+									this.props.handleonFocus(this.props.list);
+								}}
 								onBlur={this.props.handleonBlur}
 								className={this.props.focused ? 'focused' : ''}
 							/>
@@ -86,9 +101,11 @@ class Header extends Component {
 					</SearchWapper>
 				</Nav>
 				<Addition>
-					<Button className="writting">
-						<i className="iconfont pencil">&#xe617;</i>写文章
-					</Button>
+					<Link to="/write">
+						<Button className="writting">
+							<i className="iconfont pencil">&#xe617;</i>写文章
+						</Button>
+					</Link>
 					<Button className="reg">注册</Button>
 				</Addition>
 			</HeaderWrapper>
@@ -101,13 +118,14 @@ const mapStateToProps = (state) => {
 		list: state.get('header').get('list'),
 		page: state.get('header').get('page'),
 		totalPage: state.get('header').get('totalPage'),
-		mouseIn: state.get('header').get('mouseIn')
+		mouseIn: state.get('header').get('mouseIn'),
+		login: state.get('login').get('login')
 	};
 };
 const mapDispathProps = (dispatch) => {
 	return {
 		handleonFocus(list) {
-			(list.size===0)&&dispatch(CreateAction.getList());
+			list.size === 0 && dispatch(CreateAction.getList());
 			dispatch(CreateAction.search_focus());
 		},
 		handleonBlur() {
@@ -120,20 +138,23 @@ const mapDispathProps = (dispatch) => {
 			dispatch(CreateAction.mouseOut());
 		},
 		handleChangePage(page, totalPage, spin) {
-			let originAngle = spin.style.transform.replace(/[^0-9]/ig,'');
+			let originAngle = spin.style.transform.replace(/[^0-9]/gi, '');
 			console.log(originAngle);
 			if (originAngle) {
 				originAngle = parseInt(originAngle, 10);
 			} else {
 				originAngle = 0;
 			}
-			spin.style.transform='rotate('+(originAngle+360)+'deg)'
+			spin.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
 			if (page < totalPage) {
 				dispatch(CreateAction.changePage(page + 1));
 			} else {
 				dispatch(CreateAction.changePage(1));
 			}
 			// dispatch(CreateAction)
+		},
+		logout() {
+			dispatch(LoginCreateAction.logout());
 		}
 	};
 };
