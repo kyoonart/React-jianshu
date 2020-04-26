@@ -13,7 +13,7 @@
 | react-transition-group | 动态改变 class 属性值实现 react 动画                   |
 
 ### 运行本项目
-注意：这里默认给您写的是npm哦，如果不支持请修改第三行为 cnpm install 
+注意：这里默认给写的是npm哦，如果不支持请修改第三行为 cnpm install 
 ```
 git clone https://github.com/pengtaoa/React-jianshu.git
 cd React-jianshu
