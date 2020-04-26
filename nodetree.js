@@ -1,8 +1,8 @@
 var nodetree = require('nodetree');
 nodetree(process.cwd(), {
-  all: false,
+  all: true,
   directories: false,
-  level: 4,
+  level: 5,
   prune: false,
   noreport: false
 });
