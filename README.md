@@ -22,59 +22,59 @@ npm start 或者 yarn start
 ```
 ### 项目目录结构
 
-├── package.json
-├── public
-│   ├── api
-│   │   ├── detail.json
-│   │   ├── headerList.json
-│   │   ├── home.json
-│   │   ├── homeList.json
-│   │   └── login.json
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   └── robots.txt
-├── README.md
-├── src
-│   ├── App.js
-│   ├── common
-│   │   └── header
-│   │       ├── index.js
-│   │       ├── loadable.js
-│   │       ├── store
-│   │       └── style.js 
-│   ├── index.js
-│   ├── pages
-│   │   ├── detail
-│   │   │   ├── index.js
-│   │   │   ├── loadable.js
-│   │   │   ├── store
-│   │   │   └── style.js
-│   │   ├── home
-│   │   │   ├── components
-│   │   │   ├── index.js
-│   │   │   ├── store
-│   │   │   └── style.js
-│   │   ├── login
-│   │   │   ├── index.js
-│   │   │   ├── store
-│   │   │   └── style.js
-│   │   └── write
-│   │       └── index.js
-│   ├── static
-│   │   └── iconfont
-│   │       ├── iconfont.eot
-│   │       ├── iconfont.js
-│   │       ├── iconfont.svg
-│   │       ├── iconfont.ttf
-│   │       └── iconfont.woff
-│   ├── store
-│   │   ├── index.js
-│   │   └── reducer.js
-│   └── style.js
-└── yarn.lock
+        ├── package.json
+        ├── public
+        │   ├── api
+        │   │   ├── detail.json
+        │   │   ├── headerList.json
+        │   │   ├── home.json
+        │   │   ├── homeList.json
+        │   │   └── login.json
+        │   ├── favicon.ico
+        │   ├── index.html
+        │   ├── logo192.png
+        │   ├── logo512.png
+        │   ├── manifest.json
+        │   └── robots.txt
+        ├── README.md
+        ├── src
+        │   ├── App.js
+        │   ├── common
+        │   │   └── header
+        │   │       ├── index.js
+        │   │       ├── loadable.js
+        │   │       ├── store
+        │   │       └── style.js 
+        │   ├── index.js
+        │   ├── pages
+        │   │   ├── detail
+        │   │   │   ├── index.js
+        │   │   │   ├── loadable.js
+        │   │   │   ├── store
+        │   │   │   └── style.js
+        │   │   ├── home
+        │   │   │   ├── components
+        │   │   │   ├── index.js
+        │   │   │   ├── store
+        │   │   │   └── style.js
+        │   │   ├── login
+        │   │   │   ├── index.js
+        │   │   │   ├── store
+        │   │   │   └── style.js
+        │   │   └── write
+        │   │       └── index.js
+        │   ├── static
+        │   │   └── iconfont
+        │   │       ├── iconfont.eot
+        │   │       ├── iconfont.js
+        │   │       ├── iconfont.svg
+        │   │       ├── iconfont.ttf
+        │   │       └── iconfont.woff
+        │   ├── store
+        │   │   ├── index.js
+        │   │   └── reducer.js
+        │   └── style.js
+        └── yarn.lock
 ### 我做了哪些功能？
 1. 首页的样式与布局，没有做响应式
 2. 页面头部搜索栏的动画与推荐
