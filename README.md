@@ -21,6 +21,7 @@ npm install
 npm start 或者 yarn start
 ```
 ### 项目目录结构
+
 ├── package.json
 ├── public
 │   ├── api
@@ -43,7 +44,7 @@ npm start 或者 yarn start
 │   │       ├── index.js
 │   │       ├── loadable.js
 │   │       ├── store
-│   │       └── style.js
+│   │       └── style.js 
 │   ├── index.js
 │   ├── pages
 │   │   ├── detail
