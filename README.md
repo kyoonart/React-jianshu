@@ -329,3 +329,5 @@ import { withRouter } from 'react-router-dom'
 
 export default withRouter(Detail)
 ```
+### 个人总结
+学习了Vue后再学习另外一个框架感觉上手快多了，不过React的这种函数式的开发让我对组件化有了新的理解，尤其是redux这种状态管理更是颠覆了我的认知。后面还有很多需要学习的，继续努力！
