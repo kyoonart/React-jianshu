@@ -86,7 +86,7 @@ npm start 或者 yarn start
 2. 页面头部搜索栏的动画与推荐
 3. 页面头部：登陆与退出的跳转
 4. 页面头部：写文章的权限验证，没有登陆会跳到登陆页面
-5. 登陆页的简单布局。没有验证哈
+5. 登陆页的简单布局。暂时没有验证
 6. 文章详情的跳转，虽然点每一个跳过去都是同一篇文章，但发送的ajax请求不同
 
 注： 所有的mock数据放在puclic/api
@@ -255,25 +255,26 @@ merge 方法可以更方便的一次性合并多个属性，并且合并的内�
 
 ```javascript
 import { BrowserRouter, Route } from 'react-router-dom'
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <div>
-          <Header /> {/*这里是一直出现在页面中的header部分*/}
-          <BrowserRouter>
-            <div>
-             {/*这里是根据路由显示的router部分*/}
-              {/*exact表示完全匹配，不加这个的话 /detail 中也能匹配到/，就会让其他页面都展示出header */}
-              <Route path="/" exact component={Home} />
-              <Route path="/detail" exact component={Detail} />
-            </div>
-          </BrowserRouter>
-        </div>
-      </Provider>
-    )
-  }
+function App() {
+  return (
+   <Provider store={store}>
+      <div>
+    <BrowserRouter>
+    <div>
+      <Header></Header> {/*这里是一直出现在页面中的header部分*/}
+      {/*exact表示完全匹配，不加这个的话 /detail 中也能匹配到/，就会让其他页面都展示出header */}
+  {/*这里是根据路由显示的router部分*/}
+    <Route path='/' exact  component={Home}></Route>
+    <Route path='/detail/:id' exact component={Detail} ></Route>
+    <Route path='/login' exact component={Login} ></Route>
+    <Route path='/write' exact component={Write} ></Route>
+    </div> 
+    </BrowserRouter>
+      </div>  
+   </Provider>
+  );
 }
+export default App;
 ```
 
 ### PureComponent
@@ -292,14 +293,12 @@ Loadable 是一个高阶组件（简单来说，就是把组件作为输入的�
 //用Loadable来包装组件，让页面可以被异步加载
 import React from 'react' //用来解析JSX语法
 import Loadable from 'react-loadable'
-
 const LoadableBar = Loadable({
   loader: () => import('./'),
   loading() {
     return <div>Loading...</div>
   }
 })
-
 export default () => <LoadableBar />
 ```
 
