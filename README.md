@@ -22,77 +22,77 @@ npm start 或者 yarn start
 ```
 ### 项目目录结构
 
-├── public                                    打包存放目录
-│   ├── api                                   mock本地数据
-│   │   ├── detail.json
-│   │   ├── headerList.json         
-│   │   ├── home.json
-│   │   ├── homeList.json
-│   │   └── login.json
-│   ├── favicon.ico                           一些图标
-│   ├── index.html
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   └── robots.txt
-├── README.md                                 说明文档
-├── src                                       主要代码目录
-│   ├── App.js                                根组件
-│   ├── common                                公共组件
-│   │   └── header                            头部导航栏组件
-│   │       ├── index.js                      入口             
-│   │       ├── store                         herder区域需要用到的数据
-│   │       │   ├── actionCreater.js          统一管理action
-│   │       │   ├── constants.js              用常量替代所有的action的type值
-│   │       │   ├── index.js                  提供统一对外接口
-│   │       │   └── reducer.js                根据不同的action修改state
-│   │       └── style.js
-│   ├── index.js                              全局默认入口
-│   │   ├── home                              主页组件
-│   │   │   ├── components                    主页的一些相关组件
-│   │   │   │   ├── List.js
-│   │   │   │   ├── Recommed.js
-│   │   │   │   ├── TopIc.js
-│   │   │   │   └── Writer.js
-│   │   │   ├── index.js
-│   │   │   ├── store                         主页需要使用的数据
-│   │   │   │   ├── constants.js
-│   │   │   │   ├── createActions.js
-│   │   │   │   ├── index.js
-│   │   │   │   └── reducer.js
-│   │   │   └── style.js                      主页样式
-│   ├── pages                                 所有的页面
-│   │   ├── detail                            文章详情组件
-│   │   │   ├── index.js                      
-│   │   │   ├── loadable.js                   使用loadable包装组件，让其可异步加载代码
-│   │   │   ├── store                         详情页面需要使用的数据
-│   │   │   │   ├── constants.js
-│   │   │   │   ├── createActions.js
-│   │   │   │   ├── index.js
-│   │   │   │   └── reducer.js
-│   │   │   └── style.js                      样式
-│   │   ├── login                             登录组件
-│   │   │   ├── index.js
-│   │   │   ├── store                          登录需要使用的数据
-│   │   │   │   ├── constants.js
-│   │   │   │   ├── createActions.js
-│   │   │   │   ├── index.js
-│   │   │   │   └── reducer.js
-│   │   │   └── style.js
-│   │   └── write                             写文章组件
-│   │       └── index.js                      待完善
-│   ├── static                                静态资源文件夹 
-│   │   └── iconfont                          存放一些图标
-│   │       ├── iconfont.eot
-│   │       ├── iconfont.js
-│   │       ├── iconfont.svg
-│   │       ├── iconfont.ttf
-│   │       └── iconfont.woff
-│   ├── store                                  全局数据仓库      
-│   │   ├── index.js                           唯一的store
-│   │   └── reducer.js                         合并各组件的reducer
-│   └
-└── yarn.lock
+        ├── public                                    打包存放目录
+        │   ├── api                                   mock本地数据
+        │   │   ├── detail.json
+        │   │   ├── headerList.json         
+        │   │   ├── home.json
+        │   │   ├── homeList.json
+        │   │   └── login.json
+        │   ├── favicon.ico                           一些图标
+        │   ├── index.html
+        │   ├── logo192.png
+        │   ├── logo512.png
+        │   ├── manifest.json
+        │   └── robots.txt
+        ├── README.md                                 说明文档
+        ├── src                                       主要代码目录
+        │   ├── App.js                                根组件
+        │   ├── common                                公共组件
+        │   │   └── header                            头部导航栏组件
+        │   │       ├── index.js                      入口             
+        │   │       ├── store                         herder区域需要用到的数据
+        │   │       │   ├── actionCreater.js          统一管理action
+        │   │       │   ├── constants.js              用常量替代所有的action的type值
+        │   │       │   ├── index.js                  提供统一对外接口
+        │   │       │   └── reducer.js                根据不同的action修改state
+        │   │       └── style.js
+        │   ├── index.js                              全局默认入口
+        │   │   ├── home                              主页组件
+        │   │   │   ├── components                    主页的一些相关组件
+        │   │   │   │   ├── List.js
+        │   │   │   │   ├── Recommed.js
+        │   │   │   │   ├── TopIc.js
+        │   │   │   │   └── Writer.js
+        │   │   │   ├── index.js
+        │   │   │   ├── store                         主页需要使用的数据
+        │   │   │   │   ├── constants.js
+        │   │   │   │   ├── createActions.js
+        │   │   │   │   ├── index.js
+        │   │   │   │   └── reducer.js
+        │   │   │   └── style.js                      主页样式
+        │   ├── pages                                 所有的页面
+        │   │   ├── detail                            文章详情组件
+        │   │   │   ├── index.js                      
+        │   │   │   ├── loadable.js                   使用loadable包装组件，让其可异步加载代码
+        │   │   │   ├── store                         详情页面需要使用的数据
+        │   │   │   │   ├── constants.js
+        │   │   │   │   ├── createActions.js
+        │   │   │   │   ├── index.js
+        │   │   │   │   └── reducer.js
+        │   │   │   └── style.js                      样式
+        │   │   ├── login                             登录组件
+        │   │   │   ├── index.js
+        │   │   │   ├── store                          登录需要使用的数据
+        │   │   │   │   ├── constants.js
+        │   │   │   │   ├── createActions.js
+        │   │   │   │   ├── index.js
+        │   │   │   │   └── reducer.js
+        │   │   │   └── style.js
+        │   │   └── write                             写文章组件
+        │   │       └── index.js                      待完善
+        │   ├── static                                静态资源文件夹 
+        │   │   └── iconfont                          存放一些图标
+        │   │       ├── iconfont.eot
+        │   │       ├── iconfont.js
+        │   │       ├── iconfont.svg
+        │   │       ├── iconfont.ttf
+        │   │       └── iconfont.woff
+        │   ├── store                                  全局数据仓库      
+        │   │   ├── index.js                           唯一的store
+        │   │   └── reducer.js                         合并各组件的reducer
+        │   └
+        └── yarn.lock
 ### 我做了哪些功能？
 1. 首页的样式与布局，没有做响应式
 2. 页面头部搜索栏的动画与推荐
