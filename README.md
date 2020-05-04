@@ -1,4 +1,4 @@
-# React学习 独立开发简书官网
+# React学习 开发简书官网
 ### 所用到的技术栈
 ![JgdUQP.png](https://s1.ax1x.com/2020/04/26/JgdUQP.png)
 ### 运行本项目
