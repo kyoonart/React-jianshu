@@ -1,19 +1,24 @@
-# React学习 开发简书官网
+# React 学习 开发简书官网
+
 ### 所用到的技术栈
+
 ![JgdUQP.png](https://s1.ax1x.com/2020/04/26/JgdUQP.png)
+
 ### 运行本项目
+
 ```
 git clone https://github.com/pengtaoa/React-jianshu.git
 cd React-jianshu
 npm install
 npm start 或者 yarn start
 ```
+
 ### 项目目录结构
 
         ├── public                                    打包存放目录
         │   ├── api                                   mock本地数据
         │   │   ├── detail.json
-        │   │   ├── headerList.json         
+        │   │   ├── headerList.json
         │   │   ├── home.json
         │   │   ├── homeList.json
         │   │   └── login.json
@@ -28,7 +33,7 @@ npm start 或者 yarn start
         │   ├── App.js                                根组件
         │   ├── common                                公共组件
         │   │   └── header                            头部导航栏组件
-        │   │       ├── index.js                      入口             
+        │   │       ├── index.js                      入口
         │   │       ├── store                         herder区域需要用到的数据
         │   │       │   ├── actionCreater.js          统一管理action
         │   │       │   ├── constants.js              用常量替代所有的action的type值
@@ -51,7 +56,7 @@ npm start 或者 yarn start
         │   │   │   └── style.js                      主页样式
         │   ├── pages                                 所有的页面
         │   │   ├── detail                            文章详情组件
-        │   │   │   ├── index.js                      
+        │   │   │   ├── index.js
         │   │   │   ├── loadable.js                   使用loadable包装组件，让其可异步加载代码
         │   │   │   ├── store                         详情页面需要使用的数据
         │   │   │   │   ├── constants.js
@@ -69,34 +74,39 @@ npm start 或者 yarn start
         │   │   │   └── style.js
         │   │   └── write                             写文章组件
         │   │       └── index.js                      待完善
-        │   ├── static                                静态资源文件夹 
+        │   ├── static                                静态资源文件夹
         │   │   └── iconfont                          存放一些图标
         │   │       ├── iconfont.eot
         │   │       ├── iconfont.js
         │   │       ├── iconfont.svg
         │   │       ├── iconfont.ttf
         │   │       └── iconfont.woff
-        │   ├── store                                  全局数据仓库      
+        │   ├── store                                  全局数据仓库
         │   │   ├── index.js                           唯一的store
         │   │   └── reducer.js                         合并各组件的reducer
         │   └
         └── yarn.lock
+
 ### 我做了哪些功能？
+
 1. 首页的样式与布局，没有做响应式
 2. 页面头部搜索栏的动画与推荐
 3. 页面头部：登陆与退出的跳转
 4. 页面头部：写文章的权限验证，没有登陆会跳到登陆页面
 5. 登陆页的简单布局。暂时没有验证
-6. 文章详情的跳转，虽然点每一个跳过去都是同一篇文章，但发送的ajax请求不同
+6. 文章详情的跳转，虽然点每一个跳过去都是同一篇文章，但发送的 ajax 请求不同
 
-注： 所有的mock数据放在puclic/api
+注： 所有的 mock 数据放在 puclic/api
+
 ### 项目是如何拆分的？
+
 1. 按照页面进行拆分。 src/pages 目录下的每一个文件夹代表一个页面
 2. 每一个页面的文件夹下管理它自己的数据与状态
-    通过 combine-reducer ，可以将庞大的state分割到多个文件中，在每一个代表页面的文件夹中各自管理各自的数据，可以极大的降低合作成本，并让代码清晰
-3. 将通用组件或一个不属于某一个路由的组件如header部分放到src/common文件夹中，尽可能提高服用度
-4. 在src/App.js中管理路由
-5. 在src/store/reducer中合并所有的reducer
+   通过 combine-reducer ，可以将庞大的 state 分割到多个文件中，在每一个代表页面的文件夹中各自管理各自的数据，可以极大的降低合作成本，并让代码清晰
+3. 将通用组件或一个不属于某一个路由的组件如 header 部分放到 src/common 文件夹中，尽可能提高服用度
+4. 在 src/App.js 中管理路由
+5. 在 src/store/reducer 中合并所有的 reducer
+
 ### styled-components
 
 使用 styled-components 有以下几个好处:
@@ -111,28 +121,28 @@ npm start 或者 yarn start
 
 ```javascript
 export const HeaderWrapper = styled.div.attrs({
-  class: 'header'
+  class: "header",
 })`
   height: 58px;
   .somePart {
     color: red;
   }
-`
+`;
 ```
 
 #### 在 styled-components 中使用图片
 
 图片必须先使用 import 导入，因为 webpack 会帮我们把项目打包
-在使用的时候使用字符串插槽，即 ${ } 的方式
+在使用的时候使用字符串插槽，即 \${ } 的方式
 
 ```javascript
-import logoPic from '../../statics/logo.png'
+import logoPic from "../../statics/logo.png";
 
 export const Logo = styled.a`
   width: 100px;
   height: 56px;
   background: url(${logoPic});
-`
+`;
 ```
 
 ### React Transition Group
@@ -242,7 +252,7 @@ immutable 向数组中添加元素
 使用 concat 方法
 
 ```javascript
-state.set('articleList', state.get('articleList').concat(action.value))
+state.set("articleList", state.get("articleList").concat(action.value));
 ```
 
 **merge 方法**
@@ -254,24 +264,24 @@ merge 方法可以更方便的一次性合并多个属性，并且合并的内�
 文档地址：[https://reacttraining.com/react-router/web/example/basic](https://reacttraining.com/react-router/web/example/basic)
 
 ```javascript
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from "react-router-dom";
 function App() {
   return (
-   <Provider store={store}>
+    <Provider store={store}>
       <div>
-    <BrowserRouter>
-    <div>
-      <Header></Header> {/*这里是一直出现在页面中的header部分*/}
-      {/*exact表示完全匹配，不加这个的话 /detail 中也能匹配到/，就会让其他页面都展示出header */}
-  {/*这里是根据路由显示的router部分*/}
-    <Route path='/' exact  component={Home}></Route>
-    <Route path='/detail/:id' exact component={Detail} ></Route>
-    <Route path='/login' exact component={Login} ></Route>
-    <Route path='/write' exact component={Write} ></Route>
-    </div> 
-    </BrowserRouter>
-      </div>  
-   </Provider>
+        <BrowserRouter>
+          <div>
+            <Header></Header> {/*这里是一直出现在页面中的header部分*/}
+            {/*exact表示完全匹配，不加这个的话 /detail 中也能匹配到/，就会让其他页面都展示出header */}
+            {/*这里是根据路由显示的router部分*/}
+            <Route path="/" exact component={Home}></Route>
+            <Route path="/detail/:id" exact component={Detail}></Route>
+            <Route path="/login" exact component={Login}></Route>
+            <Route path="/write" exact component={Write}></Route>
+          </div>
+        </BrowserRouter>
+      </div>
+    </Provider>
   );
 }
 export default App;
@@ -291,15 +301,15 @@ Loadable 是一个高阶组件（简单来说，就是把组件作为输入的�
 
 ```javascript
 //用Loadable来包装组件，让页面可以被异步加载
-import React from 'react' //用来解析JSX语法
-import Loadable from 'react-loadable'
+import React from "react"; //用来解析JSX语法
+import Loadable from "react-loadable";
 const LoadableBar = Loadable({
-  loader: () => import('./'),
+  loader: () => import("./"),
   loading() {
-    return <div>Loading...</div>
-  }
-})
-export default () => <LoadableBar />
+    return <div>Loading...</div>;
+  },
+});
+export default () => <LoadableBar />;
 ```
 
 当一个作为页面的组件被 loadabel 包装过之后，可能会出现路由相关的问题，因为在这个时候直接放在 Route 下面的这个组件已近从原来的组件变成了 loadable 包装过的组件了，它不能直接获取到路由里面的信息了。
@@ -316,5 +326,7 @@ import { withRouter } from 'react-router-dom'
 
 export default withRouter(Detail)
 ```
+
 ### 个人总结
-学习了Vue后再学习另外一个框架感觉上手快多了，不过React的这种函数式的开发让我对组件化有了新的理解，尤其是redux这种状态管理更是颠覆了我的认知。后面还有很多需要学习的，继续努力！
+
+学习了 Vue 后再学习另外一个框架感觉上手快多了，不过 React 的这种函数式的开发让我对组件化有了新的理解，尤其是 redux 这种状态管理更是改变了我的认知。后面还有很多需要学习的，继续努力！
